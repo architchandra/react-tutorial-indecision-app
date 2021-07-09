@@ -1,9 +1,18 @@
 'use strict';
 
 var template = React.createElement(
-  'p',
+  'div',
   null,
-  'This is app.'
+  React.createElement(
+    'h1',
+    null,
+    'This is zappsy.'
+  ),
+  React.createElement(
+    'p',
+    null,
+    'This is some text.'
+  )
 );
 var appRoot = document.getElementById('app');
 
