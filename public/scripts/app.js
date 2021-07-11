@@ -38,7 +38,7 @@ var reRender = function reRender() {
     ),
     React.createElement(
       'button',
-      { onClick: onClickRemove },
+      { disabled: appData.options.length === 0, onClick: onClickRemove },
       'Remove All'
     ),
     React.createElement(

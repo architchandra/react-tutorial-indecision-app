@@ -25,7 +25,7 @@ const reRender = () => {
     <div>
       <h1>{ appData.title }</h1>
       { appData.subtitle && <p>{appData.subtitle}</p> }
-      <button onClick={ onClickRemove }>Remove All</button>
+      <button disabled={ appData.options.length === 0 } onClick={ onClickRemove }>Remove All</button>
       <ol>
         { appData.options.map((option, i) => <li key={ i }>{ option }</li>) }
       </ol>
