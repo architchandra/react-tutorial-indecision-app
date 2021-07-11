@@ -37,24 +37,35 @@ var reRender = function reRender() {
       appData.subtitle
     ),
     React.createElement(
-      'p',
-      null,
-      appData.options && appData.options.length ? 'Options available: ' + appData.options.join(', ') : 'No options found.'
-    ),
-    React.createElement(
       'button',
       { onClick: onClickRemove },
       'Remove All'
     ),
     React.createElement(
+      'ol',
+      null,
+      appData.options.map(function (option, i) {
+        return React.createElement(
+          'li',
+          { key: i },
+          option
+        );
+      })
+    ),
+    appData.options && !appData.options.length ? React.createElement(
       'p',
       null,
-      appData.options.length
-    ),
+      'No options found.'
+    ) : '',
     React.createElement(
       'form',
       { onSubmit: onFormSubmit },
-      React.createElement('input', { type: 'text', name: 'option' })
+      React.createElement('input', { type: 'text', name: 'option' }),
+      React.createElement(
+        'button',
+        { type: 'submit' },
+        'Add Option'
+      )
     )
   );
   ReactDOM.render(template, appRoot);

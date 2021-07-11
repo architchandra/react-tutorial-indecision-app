@@ -25,13 +25,14 @@ const reRender = () => {
     <div>
       <h1>{ appData.title }</h1>
       { appData.subtitle && <p>{appData.subtitle}</p> }
-      <p>
-        { appData.options && appData.options.length ? 'Options available: ' + appData.options.join(', ') : 'No options found.' }
-      </p>
       <button onClick={ onClickRemove }>Remove All</button>
-      <p>{ appData.options.length }</p>
+      <ol>
+        { appData.options.map((option, i) => <li key={ i }>{ option }</li>) }
+      </ol>
+      { appData.options && !appData.options.length ? <p>No options found.</p> : '' }
       <form onSubmit={ onFormSubmit }>
         <input type="text" name="option" />
+        <button type="submit">Add Option</button>
       </form>
     </div>
   );
