@@ -3,11 +3,11 @@
 var appData = {
   title: 'Indecision App',
   subtitle: 'Do things with clarity',
-  options: []
+  options: [],
+  decision: null
 };
 
-var onClickRemove = function onClickRemove(e) {
-  e.preventDefault();
+var onClickRemove = function onClickRemove() {
   appData.options = [];
   reRender();
 };
@@ -17,6 +17,13 @@ var onFormSubmit = function onFormSubmit(e) {
   var option = e.target.elements.option.value;
   appData.options.push(option);
   e.target.elements.option.value = '';
+  reRender();
+};
+
+var onMakeDecision = function onMakeDecision() {
+  var randNum = Math.floor(Math.random() * appData.options.length);
+  console.log(randNum);
+  appData.decision = randNum;
   reRender();
 };
 
@@ -38,9 +45,20 @@ var reRender = function reRender() {
     ),
     React.createElement(
       'button',
-      { disabled: appData.options.length === 0, onClick: onClickRemove },
+      { type: 'button', disabled: appData.options.length === 0, onClick: onClickRemove },
       'Remove All'
     ),
+    React.createElement(
+      'button',
+      { type: 'button', disabled: appData.options.length === 0, onClick: onMakeDecision },
+      'What should I do?'
+    ),
+    appData.options.length !== 0 && appData.decision !== null ? React.createElement(
+      'p',
+      null,
+      'Do ',
+      appData.options[appData.decision]
+    ) : '',
     React.createElement(
       'ol',
       null,
