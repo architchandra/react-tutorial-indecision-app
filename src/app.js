@@ -89,7 +89,9 @@ const Options = (props) => (
 );
 
 const Option = (props) => (
-  <li>{ props.text }</li>
+  <li>
+    { props.text }
+  </li>
 );
 
 class AddOption extends React.Component {
