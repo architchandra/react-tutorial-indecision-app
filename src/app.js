@@ -59,54 +59,38 @@ class IndecisionApp extends React.Component {
   }
 }
 
-class Header extends React.Component {
-  render() {
-    return (
-      <header>
-        <h1>{ this.props.title }</h1>
-        <h2>{ this.props.subtitle }</h2>
-      </header>
-    );
-  }
-}
+const Header = (props) => (
+  <header>
+    <h1>{ props.title }</h1>
+    <h2>{ props.subtitle }</h2>
+  </header>
+);
 
-class Action extends React.Component {
-  render() {
-    return (
-      <div>
-        <button
-          type="button"
-          disabled={ !this.props.hasOptions }
-          onClick={ this.props.handleChooseOption }
-        >
-          What should I do?
-        </button>
-        { !!this.props.selectedOption && <p>{ this.props.selectedOption }</p> }
-      </div>
-    );
-  }
-}
+const Action = (props) => (
+  <div>
+    <button
+      type="button"
+      disabled={ !props.hasOptions }
+      onClick={ props.handleChooseOption }
+    >
+      What should I do?
+    </button>
+    { !!props.selectedOption && <p>{ props.selectedOption }</p> }
+  </div>
+);
 
-class Options extends React.Component {
-  render() {
-    return (
-      <div>
-        <ol>
-          { this.props.options.map((option, index) => <Option key={ index } text={ option } /> ) }
-        </ol>
-        <button type="button" onClick={ this.props.handleDeleteOptions }>Remove all options</button>
-      </div>
-    );
-  }
-}
+const Options = (props) => (
+  <div>
+    <ol>
+      { props.options.map((option, index) => <Option key={ index } text={ option } /> ) }
+    </ol>
+    <button type="button" onClick={ props.handleDeleteOptions }>Remove all options</button>
+  </div>
+);
 
-class Option extends React.Component {
-  render() {
-    return (
-      <li>{ this.props.text }</li>
-    );
-  }
-}
+const Option = (props) => (
+  <li>{ props.text }</li>
+);
 
 class AddOption extends React.Component {
   constructor(props) {
