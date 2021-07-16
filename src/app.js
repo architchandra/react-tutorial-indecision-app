@@ -36,12 +36,11 @@ class IndecisionApp extends React.Component {
   }
   
   render() {
-    const title = 'Indecision App';
     const subtitle = 'Put your life in the hands of a computer.'
 
     return (
       <div>
-        <Header title={ title } subtitle={ subtitle } />
+        <Header subtitle={ subtitle } />
         <Action
           hasOptions={ this.state.options.length > 0 }
           selectedOption={ this.state.selectedOption }
@@ -62,9 +61,12 @@ class IndecisionApp extends React.Component {
 const Header = (props) => (
   <header>
     <h1>{ props.title }</h1>
-    <h2>{ props.subtitle }</h2>
+    { props.subtitle && <h2>{ props.subtitle }</h2> }
   </header>
 );
+Header.defaultProps = {
+  title: 'Indecision App',
+};
 
 const Action = (props) => (
   <div>
