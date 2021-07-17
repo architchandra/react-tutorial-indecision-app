@@ -10,6 +10,21 @@ class Counter extends React.Component {
       count: 0,
     };
   }
+
+  componentDidMount() {
+    const retrievedCount = parseInt(localStorage.getItem('count'), 10);
+    if(!isNaN(retrievedCount)) {
+      this.setState(() => ({
+        count: retrievedCount,
+      }));
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if(prevState.count !== this.state.count) {
+      localStorage.setItem('count', this.state.count);
+    }
+  }
   
   handlePlusOne() {
     this.setState((prevState) => {
