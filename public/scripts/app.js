@@ -225,7 +225,9 @@ var AddOption = function (_React$Component2) {
         };
       });
 
-      e.target.elements.option.value = '';
+      if (!error) {
+        e.target.elements.option.value = '';
+      }
     }
   }, {
     key: 'render',
