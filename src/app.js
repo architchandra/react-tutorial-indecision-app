@@ -94,6 +94,8 @@ const Action = (props) => (
 
 const Options = (props) => (
   <div>
+    <button type="button" onClick={ props.handleDeleteOptions }>Remove all options</button>
+    { props.options.length === 0 && <p>Please add an option to get started.</p> }
     <ol>
       { props.options.map((option, index) => (
         <Option
@@ -104,7 +106,6 @@ const Options = (props) => (
         />
       ) ) }
     </ol>
-    <button type="button" onClick={ props.handleDeleteOptions }>Remove all options</button>
   </div>
 );
 

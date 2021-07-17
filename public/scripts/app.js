@@ -153,6 +153,16 @@ var Options = function Options(props) {
     'div',
     null,
     React.createElement(
+      'button',
+      { type: 'button', onClick: props.handleDeleteOptions },
+      'Remove all options'
+    ),
+    props.options.length === 0 && React.createElement(
+      'p',
+      null,
+      'Please add an option to get started.'
+    ),
+    React.createElement(
       'ol',
       null,
       props.options.map(function (option, index) {
@@ -163,11 +173,6 @@ var Options = function Options(props) {
           handleDeleteSingleOption: props.handleDeleteSingleOption
         });
       })
-    ),
-    React.createElement(
-      'button',
-      { type: 'button', onClick: props.handleDeleteOptions },
-      'Remove all options'
     )
   );
 };
