@@ -19,6 +19,7 @@ var IndecisionApp = function (_React$Component) {
     _this.handleDeleteOptions = _this.handleDeleteOptions.bind(_this);
     _this.handleChooseOption = _this.handleChooseOption.bind(_this);
     _this.handleAddOption = _this.handleAddOption.bind(_this);
+    _this.handleDeleteSingleOption = _this.handleDeleteSingleOption.bind(_this);
 
     _this.state = {
       options: props.options,
@@ -33,6 +34,17 @@ var IndecisionApp = function (_React$Component) {
       this.setState(function () {
         return {
           options: []
+        };
+      });
+    }
+  }, {
+    key: 'handleDeleteSingleOption',
+    value: function handleDeleteSingleOption(option) {
+      this.setState(function (prevState) {
+        return {
+          options: prevState.options.filter(function (item) {
+            return item !== option;
+          })
         };
       });
     }
@@ -78,7 +90,8 @@ var IndecisionApp = function (_React$Component) {
         }),
         React.createElement(Options, {
           options: this.state.options,
-          handleDeleteOptions: this.handleDeleteOptions
+          handleDeleteOptions: this.handleDeleteOptions,
+          handleDeleteSingleOption: this.handleDeleteSingleOption
         }),
         React.createElement(AddOption, {
           handleAddOption: this.handleAddOption
@@ -143,7 +156,12 @@ var Options = function Options(props) {
       'ol',
       null,
       props.options.map(function (option, index) {
-        return React.createElement(Option, { key: index, text: option });
+        return React.createElement(Option, {
+          key: index,
+          text: option,
+          options: props.options,
+          handleDeleteSingleOption: props.handleDeleteSingleOption
+        });
       })
     ),
     React.createElement(
@@ -158,7 +176,17 @@ var Option = function Option(props) {
   return React.createElement(
     'li',
     null,
-    props.text
+    props.text,
+    React.createElement(
+      'button',
+      {
+        type: 'button',
+        onClick: function onClick(e) {
+          return props.handleDeleteSingleOption(props.text);
+        }
+      },
+      'Remove'
+    )
   );
 };
 
