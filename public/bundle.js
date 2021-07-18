@@ -82,11 +82,11 @@ console.log('App.js is running!');
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return isAdult; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return canDrink; });
 const isAdult = (age) => age > 18;
-const canDrink = (age) => age > 25;
+/* harmony export (immutable) */ __webpack_exports__["b"] = isAdult;
 
+const canDrink = (age) => age > 25;
+/* harmony export (immutable) */ __webpack_exports__["a"] = canDrink;
 
 
 /***/ })
