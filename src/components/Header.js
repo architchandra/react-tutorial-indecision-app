@@ -11,5 +11,4 @@ const Header = (props) => (
 Header.defaultProps = {
   title: 'Indecision App',
 };
-console.log(Archit);
 export default Header;
