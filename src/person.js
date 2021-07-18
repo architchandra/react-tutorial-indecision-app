@@ -1,2 +1,5 @@
-export const isAdult = (age) => age > 18;
-export const canDrink = (age) => age > 25;
+const isAdult = (age) => age > 18;
+const canDrink = (age) => age > 25;
+const isAlive = (age) => age > 0;
+
+export { isAdult, canDrink, isAdult as default };
