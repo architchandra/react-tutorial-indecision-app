@@ -11,7 +11,6 @@ const Action = (props) => (
     >
       What should I do?
     </button>
-    { !!props.selectedOption && <p>{ props.selectedOption }</p> }
   </div>
 );
 export default Action;
