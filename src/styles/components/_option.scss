@@ -4,6 +4,9 @@
   justify-content: space-between;
   padding: $l-size $m-size;
 }
+.option:last-child {
+  border-bottom: none;
+}
 
 .option__text {
  color: white;
