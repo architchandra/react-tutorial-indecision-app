@@ -3,8 +3,8 @@ import React from 'react';
 
 
 const Option = (props) => (
-  <li>
-    { props.text }
+  <li className="option">
+    <p>{ props.count }. { props.text }</p>
     <button
       className="button button--link"
       type="button"
